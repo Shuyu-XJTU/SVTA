@@ -1,7 +1,7 @@
 <div align="center">
 <h2>📄🔎🎞️Towards Scalable Video Anomaly Retrieval: A Synthetic Video-Text Benchmark</h2>
 
-[Shuyu Yang](https://scholar.google.com/citations?hl=zh-CN&user=U8sKsVYAAAAJ), [Yilun Wang](), [Yaxiong Wang](https://scholar.google.com/citations?user=lDChiR4AAAAJ&hl=zh-CN), [Li Zhu](https://scholar.google.com/citations?user=lDChiR4AAAAJ&hl=zh-CN), [Zhedong Zheng](https://scholar.google.com/citations?user=lDChiR4AAAAJ&hl=zh-CN)
+[Shuyu Yang](https://scholar.google.com/citations?hl=zh-CN&user=U8sKsVYAAAAJ), [Yilun Wang](), [Yaxiong Wang](https://scholar.google.com/citations?user=lDChiR4AAAAJ&hl=zh-CN), [Li Zhu](https://scholar.google.com/citations?user=XT17oUEAAAAJ&hl=zh-CN), [Zhedong Zheng](https://scholar.google.com/citations?user=XT17oUEAAAAJ&hl=zh-CN)
 
 <a href='https://arxiv.org/abs/2506.01466'><img src='https://img.shields.io/badge/ArXiv-2506.01466-red'></a>
 <a href='https://svta-mm.github.io/SVTA.github.io/'><img src='https://img.shields.io/badge/Project-Page-green'></a>
@@ -19,7 +19,7 @@ natural language queries to facilitate public safety. However, existing
 datasets suffer from severe limitations: **(1) data scarcity due to the 
 long-tail nature of real-world anomalies**, and **(2) privacy constraints that 
 impede large-scale collection**. To address the aforementioned issues in one go, 
-we introduce **SVTA** (**S**ynthetic **V**ideo-**T**ext **A**nomaly **b**enchmark), the first large-scale 
+we introduce **SVTA** (**S**ynthetic **V**ideo-**T**ext **A**nomaly benchmark), the first large-scale 
 dataset for cross-modal anomaly retrieval, leveraging generative models to 
 overcome data availability challenges. Specifically, we collect and generate 
 video descriptions via the off-the-shelf LLM (Large Language Model) covering 
@@ -37,14 +37,14 @@ real-world anomaly collection while maintaining realistic scenarios.
 
 ## Benchmark
 
-| Datasets      | Modality      | Annotation        | Anno. Format | #Videos | #Texts  | #Anomaly Types | Anomaly : Normal | Data source |
-|---------------|---------------|-------------------|--------------|---------|---------|----------------|------------------|-------------|
-| UBnormal      | Video         | Frame-level Tag   | Action Label | 543     | -       | 22 Anomaly     | 2:3              | Synthesis   |
-| ShanghaiTech  | Video         | Frame-level Tag   | Action Label | 437     | -       | 11 Anomaly     | 1:18             | Collection  |
-| UCF-Crime     | Video         | Video-level Tag   | Action Label | 1,900   | -       | 13 Anomaly     | 1:1              | Collection  |
-| UCA           | Video, Text   | Video-level Text  | Action Text  | 1,900   | 23,542  | 13 Anomaly     | 1:1              | Collection  |
-| UCFCrime-AR   | Video, Text   | Video-level Text  | Action Text  | 1,900   | 1,900   | 13 Anomaly     | 1:1              | Collection  |
-| SVTA (Ours)   | Video, Text   | Video-level Text  | Action Text  | 41,315  | 41,315  | 68 Anomaly     | 3:2              | Synthesis   |
+| Datasets      |   Modality   |    Annotation    | Anno. Format | #Videos | #Texts  | #Anomaly Types | Anomaly : Normal | Data source |
+|---------------|:------------:|:----------------:|:------------:|:-------:|:-------:|:--------------:|:----------------:|:-----------:|
+| UBnormal      |    Video     | Frame-level Tag  | Action Label |   543   |    -    |   22 Anomaly   |       2:3        |  Synthesis  |
+| ShanghaiTech  |    Video     | Frame-level Tag  | Action Label |   437   |    -    |   11 Anomaly   |       1:18       | Collection  |
+| UCF-Crime     |    Video     | Video-level Tag  | Action Label |  1,900  |    -    |   13 Anomaly   |       1:1        | Collection  |
+| UCA           | Video, Text  | Video-level Text | Action Text  |  1,900  | 23,542  |   13 Anomaly   |       1:1        | Collection  |
+| UCFCrime-AR   | Video, Text  | Video-level Text | Action Text  |  1,900  |  1,900  |   13 Anomaly   |       1:1        | Collection  |
+| SVTA (Ours)   | Video, Text  | Video-level Text | Action Text  | 41,315  | 41,315  |   68 Anomaly   |       3:2        |  Synthesis  |
 
 Comparison of the proposed SVTA dataset and some of the other publicly available datasets 
 for anomaly detection and anomaly retrieval. Our dataset provides many more video samples, 
@@ -61,13 +61,14 @@ Pipeline of our Synthetic Video-Text Anomaly (SVTA) benchmark construction.
 
 * Second, we leverage a state-of-the-art open-source video generative model 
 to craft high-quality videos. 
-* 
+
 * Third, we adopt LLM to assign preliminary attributes for samples lacking 
 explicit normal/anomaly labels and refine all labels by K-Means clustering 
 and manual verification. 
-* 
+
 * The final dataset integrates 41,315 rigorously curated video-text pairs.
 
+More dataset statistics and analysis can be seen in our [paper](https://arxiv.org/abs/2506.01466).
 
 
 ## Experiment
@@ -105,6 +106,22 @@ as a benchmark dataset.
 </p>
 Some retrieved examples of GRAM on SVTA. 
 We visualize top 3 retrieved videos (green: correct; orange: incorrect).
+
+
+| Method               |          |          |    V2T    |          |          |          |          |    V2T    |          |          |
+|----------------------|:--------:|:--------:|:---------:|:--------:|:--------:|:--------:|:--------:|:---------:|:--------:|:--------:|
+|                      | **R@1↑** | **R@5↑** | **R@10↑** | **MdR↓** | **MnR↓** | **R@1↑** | **R@5↑** | **R@10↑** | **MdR↓** | **MnR↓** |
+| CLIP4Clip-MeanP      |   23.6   |   50.0   |   63.0    |   5.5    |   15.7   |   16.7   |   39.5   |   54.1    |   9.0    |   22.6   |
+| CLIP4Clip-seqLSTM    |   22.9   |   49.0   |   64.4    |   6.0    |   16.0   |   18.4   |   36.1   |   52.4    |   10.0   |   23.5   |
+| CLIP4Clip-seqTransf  |   24.0   |   47.6   |   64.0    |   6.0    |   16.1   |   17.7   |   36.4   |   51.0    |   10.0   |   22.4   |
+| CLIP4Clip-tightTransf|   16.8   |   41.4   |   53.4    |   8.0    |   32.9   |   14.3   |   34.0   |   49.0    |   12.0   |   39.4   |
+| X-CLIP (ViT-B/32)    |   24.0   |   49.7   |   63.4    |   6.0    |   16.4   |   17.7   |   36.4   |   52.7    |   9.0    |   22.7   |
+| X-CLIP (ViT-B/16)    |   27.4   |   53.1   |   67.8    |   5.0    |   14.0   |   20.4   |   44.6   |   59.5    |   7.0    |   19.6   |
+| GRAM                 |   34.5   |   60.7   |   70.7    |   3.0    |   17.8   |   32.4   |   57.2   |   68.6    |   4.0    |   26.3   |
+
+Zero-shot multimodal text-to-video (T2V) and video-to-text (V2T) retrieval results 
+in terms of Recall Rate (R@1, R@5, R@10), Median Rank (MdR), and Mean Rank (MnR) on UCFCrime-AR.
+More cross-domain generalization experiments can be seen in our [paper](https://arxiv.org/abs/2506.01466).
 
 
 ## Citation
