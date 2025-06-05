@@ -1,7 +1,7 @@
 <div align="center">
 <h2>📄🔎🎞️Towards Scalable Video Anomaly Retrieval: A Synthetic Video-Text Benchmark</h2>
 
-[Shuyu Yang](https://scholar.google.com/citations?hl=zh-CN&user=U8sKsVYAAAAJ), [Yilun Wang](), [Yaxiong Wang](https://scholar.google.com/citations?user=lDChiR4AAAAJ&hl=zh-CN), [Li Zhu](https://scholar.google.com/citations?user=XT17oUEAAAAJ&hl=zh-CN), [Zhedong Zheng](https://scholar.google.com/citations?user=XT17oUEAAAAJ&hl=zh-CN)
+[Shuyu Yang](https://scholar.google.com/citations?hl=zh-CN&user=U8sKsVYAAAAJ), [Yilun Wang](), [Yaxiong Wang](https://scholar.google.com/citations?user=lDChiR4AAAAJ&hl=zh-CN), [Li Zhu](https://scholar.google.com/citations?user=OinO73IAAAAJ&hl=zh-CN), [Zhedong Zheng](https://scholar.google.com/citations?user=XT17oUEAAAAJ&hl=zh-CN)
 
 <a href='https://arxiv.org/abs/2506.01466'><img src='https://img.shields.io/badge/ArXiv-2506.01466-red'></a>
 <a href='https://svta-mm.github.io/SVTA.github.io/'><img src='https://img.shields.io/badge/Project-Page-green'></a>
