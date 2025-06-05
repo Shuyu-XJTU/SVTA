@@ -108,7 +108,7 @@ Some retrieved examples of GRAM on SVTA.
 We visualize top 3 retrieved videos (green: correct; orange: incorrect).
 
 
-| Method               |          |          |    V2T    |          |          |          |          |    V2T    |          |          |
+| Method               |          |          |    T2V    |          |          |          |          |    V2T    |          |          |
 |----------------------|:--------:|:--------:|:---------:|:--------:|:--------:|:--------:|:--------:|:---------:|:--------:|:--------:|
 |                      | **R@1↑** | **R@5↑** | **R@10↑** | **MdR↓** | **MnR↓** | **R@1↑** | **R@5↑** | **R@10↑** | **MdR↓** | **MnR↓** |
 | CLIP4Clip-MeanP      |   23.6   |   50.0   |   63.0    |   5.5    |   15.7   |   16.7   |   39.5   |   54.1    |   9.0    |   22.6   |
